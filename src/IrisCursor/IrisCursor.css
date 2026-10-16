@@ -1,0 +1,43 @@
+/* IrisCursor styles separated into their own file */
+.IrisCursorComponent {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* allow clicks/hover through the custom cursor */
+    z-index: 2147483647; /* topmost */
+}
+.IrisCursorComponent .IrisCursorOutline,
+.IrisCursorComponent .IrisCursorDot {
+    pointer-events: none;
+    position: fixed; /* fixed so it's not affected by parent stacking/transform contexts */
+    box-sizing: border-box;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+.IrisCursorComponent .IrisCursorOutline {
+    width: 38px; /* overall visible size */
+    height: 38px;
+    padding: 0;
+    border-radius: 50%;
+    border: 1px solid var(--accent-color);
+    transition: transform 0.12s ease-in-out;
+    opacity: 0.12;
+    background: transparent;
+}
+.IrisCursorComponent .IrisCursorDot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    box-shadow: 0px 0px 1em 1px var(--accent-color);
+    transform: translate(-50%, -50%);
+}
+
+/* Hide native cursors on common interactive elements so our custom cursor is used */
+/* Exclude input/textarea/select to preserve text caret */
+a, button, [role="button"], [role="link"], .nav-link, .btn {
+    cursor: none !important;
+}
+
