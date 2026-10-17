@@ -41,3 +41,8 @@ a, button, input, textarea, select, [role="button"], [role="link"], .nav-link, .
     cursor: none !important;
 }
 
+@media screen and (max-width:768px) {
+    .IrisCursorComponent {
+        display: none;
+    }
+}
